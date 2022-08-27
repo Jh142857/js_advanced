@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+h4 {
+  margin: 200px 0 50px;
+  text-align: center;
+}
+.tab-box {
+  margin: 0 auto;
+  width: 1000px;
+  height: 400px;
+  border: 1px solid #e6aea0;
+}
+.tab-box .tab-nav {
+  position: relative;
+}
+.tab-box .tab-nav ul {
+  display: flex;
+  height: 50px;
+  border-bottom: 1px solid #ccc;
+}
+.tab-box .tab-nav ul li {
+  position: relative;
+  border-right: 1px solid #ccc;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  overflow: hidden;
+}
+.tab-box .tab-nav ul li.nav-current {
+  border-bottom: 1px solid #fff;
+}
+.tab-box .tab-nav ul li i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  transform: translate(50%, -50%);
+  cursor: pointer;
+}
+.tab-box .tab-nav ul li i em {
+  position: absolute;
+  left: 4px;
+  bottom: 1px;
+  line-height: normal;
+  font-size: 12px;
+}
+.tab-box .tab-nav span {
+  position: absolute;
+  border: 1px solid #ccc;
+  right: 14px;
+  top: 14px;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+.tab-box .tab-content ul {
+  padding: 40px 0 0 40px;
+}
+.tab-box .tab-content ul li {
+  display: none;
+}
+.tab-box .tab-content ul li.con-current {
+  display: block;
+}
