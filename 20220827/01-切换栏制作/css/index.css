@@ -32,9 +32,21 @@ h4 {
   line-height: 50px;
   text-align: center;
   overflow: hidden;
+  user-select: none;
 }
 .tab-box .tab-nav ul li.nav-current {
   border-bottom: 1px solid #fff;
+}
+.tab-box .tab-nav ul li span {
+  display: block;
+  height: 50px;
+  width: 100px;
+}
+.tab-box .tab-nav ul li span input {
+  width: 75px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #ccc;
 }
 .tab-box .tab-nav ul li i {
   position: absolute;
@@ -55,7 +67,7 @@ h4 {
   line-height: normal;
   font-size: 12px;
 }
-.tab-box .tab-nav span {
+.tab-box .tab-nav .add {
   position: absolute;
   border: 1px solid #ccc;
   right: 14px;
@@ -67,11 +79,25 @@ h4 {
   cursor: pointer;
 }
 .tab-box .tab-content ul {
-  padding: 40px 0 0 40px;
+  padding: 0 0 0 40px;
 }
 .tab-box .tab-content ul li {
+  height: 100px;
   display: none;
+  user-select: none;
 }
 .tab-box .tab-content ul li.con-current {
   display: block;
+}
+.tab-box .tab-content ul li span {
+  display: block;
+  height: 100%;
+  line-height: 100px;
+}
+.tab-box .tab-content ul li span input {
+  display: block;
+  height: 100px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #ccc;
 }

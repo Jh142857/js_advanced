@@ -37,8 +37,20 @@ h4 {
                 line-height: 50px;
                 text-align: center;
                 overflow: hidden;
+                user-select: none;
                 &.nav-current {
                     border-bottom: 1px solid #fff;
+                }
+                span {
+                    display: block;
+                    height: 50px;
+                    width: 100px;
+                    input {
+                        width: 75px;
+                        height: 30px;
+                        outline: none;
+                        border: 1px solid #ccc;
+                    }
                 }
                 i {
                     position: absolute;
@@ -62,7 +74,7 @@ h4 {
             }
         }
 
-        span{
+        .add{
             position: absolute;
             border: 1px solid #ccc;
             right: 14px;
@@ -72,16 +84,31 @@ h4 {
             line-height: 18px;
             text-align: center;
             cursor: pointer;
+
         }
     }
 
     .tab-content {
         ul{
-            padding: 40px 0 0 40px;
+            padding: 0 0 0 40px;
             li {
+                height: 100px;
                 display: none;
+                user-select: none;
                 &.con-current {
                     display: block;
+                }
+                span {
+                    display: block;
+                    height: 100%;
+                    line-height: 100px;
+                    input {
+                        display: block;
+                        height: 100px;
+                        width: 100%;
+                        outline: none;
+                        border: 1px solid #ccc;
+                    }
                 }
             }
         }
