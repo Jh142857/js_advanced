@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 求n的阶乘
+        function fact(num) {
+            if (num == 1) {
+                return 1;
+            }
+            return num * fact(num - 1);
+        }
+        console.log(fact(5));
+        // 求斐波那契数列
+        function fibonacci(n) {
+            if (n == 1 || n == 2) {
+                return 1;
+            }
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+        console.log(fibonacci(8));
+
+        // 利用递归查询商品
+        var data = [{
+            id: 1,
+            name: '家电',
+            goods: [{
+                id: 11,
+                gname: '冰箱',
+                goods: [{
+                    id: 111,
+                    gname: '海尔'
+                }, {
+                    id: 112,
+                    gname: '美的'
+                },]
+            }, {
+                id: 12,
+                gname: '洗衣机'
+            }]
+        }, {
+            id: 2,
+            name: '服饰'
+        }];
+
+        function getGood(data, id) {
+            var o = {};
+            data.forEach(function (obj) {
+                if (obj.id === id) {
+                    o = obj;    // 此处不能直接return，因为forEach中的return相当于continue
+                }
+                else if (obj.goods && obj.goods.length >= 1) {
+                    o = getGood(obj.goods, id);
+                }
+            })
+            return o;
+        }
+        console.log(getGood(data, 112));
+
+        // 浅拷贝实现
+        var obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            },
+            color: ['pink', 'red']
+        };
+        var newObj = {};
+        for (var k in obj) {
+            newObj[k] = obj[k];
+        }
+        console.log(newObj);
+        newObj.msg.age = 20;
+        console.log(obj);   // 浅拷贝新对象中的复杂数据类型改变，原来的也会改变
+        // 深拷贝
+        function deepCopy(newObj, obj) {
+            for (var k in obj) {
+                if(obj[k] instanceof Array) {
+                    newObj[k] = [];
+                    deepCopy(newObj[k], obj[k]);
+                }
+                else if (obj[k] instanceof Object) {
+                    newObj[k] = {};
+                    deepCopy(newObj[k], obj[k]);
+                }
+                else {
+                    newObj[k] = obj[k];
+                }
+            }
+        }
+        var o = {};
+        deepCopy(o, obj);
+        console.log(o);
+
+        // 深拷贝不会改变原有对象
+        o.color = ['pink'];
+        o.msg.age = 22;
+        console.log(obj);
+    </script>
+</body>
+
+</html>
