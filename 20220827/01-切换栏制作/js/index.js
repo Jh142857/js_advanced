@@ -1,7 +1,7 @@
-var that;
+// var that;
 class Tab {
     constructor(id) {
-        that = this;
+        // that = this;
         this.tab = document.querySelector(id);
         this.navs = this.tab.querySelector(".tab-nav").querySelectorAll("li");
         this.cons = this.tab.querySelector(".tab-content").querySelectorAll("li");
@@ -11,11 +11,11 @@ class Tab {
     // 绑定事件
     init() {
         this.getLis();
-        this.add.onclick = that.addTab;
+        this.add.onclick = this.addTab.bind(this.add, this);
         for (var i = 0; i < this.navs.length; i++) {
             this.navs[i].index = i;
-            this.navs[i].onclick = this.toggleTab;
-            this.navs[i].querySelector("i").onclick = this.closeTab;
+            this.navs[i].onclick = this.toggleTab.bind(this.navs[i], this);
+            this.navs[i].querySelector("i").onclick = this.closeTab.bind(this.navs[i].querySelector("i"), this);
             this.navs[i].querySelector("span").ondblclick = this.editTab;
             this.cons[i].querySelector("span").ondblclick = this.editTab;
         }
@@ -27,7 +27,7 @@ class Tab {
         this.cons = this.tab.querySelector(".tab-content").querySelectorAll("li");
     }
     // 切换
-    toggleTab() {
+    toggleTab(that) {
         that.clearTab();
         this.className = 'nav-current';
         // 根据序号切换内容
@@ -41,7 +41,7 @@ class Tab {
         }
     }
     // 添加状态栏
-    addTab() {
+    addTab(that) {
         // 清除状态栏
         that.clearTab();
         var navLi = `<li class="nav-current"><span>新选项卡</span><i class="close"><em>×</em></i></li>`;
@@ -53,7 +53,7 @@ class Tab {
         that.init();
     }
     // 移除状态栏
-    closeTab(e) {
+    closeTab(that, e) {
         // 阻止冒泡，否则父级会触发toggletab !important
         e.stopPropagation();
         // 移除
