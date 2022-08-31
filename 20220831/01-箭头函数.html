@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            console.log(this);
+            return () => {
+                // this根据上下文位置确定，就是函数fn对应的this
+                console.log(this);
+            }
+        }
+        obj = { age: 19 };
+        const f = fn.call(obj);
+        // 如果是箭头函数，输出的是obj，传统函数是window
+        f();
+
+
+        // 对象不能产生作用域，因此调用say方法是undefined
+        obj1 = {
+            age: 19,
+            say: () => {
+                alert(this.age);
+            }
+        }
+        obj1.say();
+    </script>
+</body>
+
+</html>

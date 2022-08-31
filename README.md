@@ -7,7 +7,7 @@
 
 https://www.bilibili.com/video/BV1Kt411w7MP?p=11&vd_source=88e4bffc33a1ac3ec57e1b3c0320c0bf
 
-### 学习进度记录（持续记录）
+### 学习进度记录（2022.08.31完结）
 
 #### 2022.08.26
 学习es6类的概念，构造方式以及使用
@@ -56,3 +56,29 @@ https://www.bilibili.com/video/BV1Kt411w7MP?p=11&vd_source=88e4bffc33a1ac3ec57e1
     - 边界符：^ / $
     - 字符类：[]多选一, -指定范围, 组合， [^]取反
     - 量词符：*(>=0), +(>=1), ?(0 || 1), {n}, {n, }, {n1, n2}
+
+#### 2022.08.31 
+- 正则表达式预定义类：\d \D \w \W \s \S
+- 正则表达式/regExp/后跟[g/i/gi]分别表示全局、忽略大小写、全局+忽略大小写
+- ES6
+  - let、const、var区别
+    ![](20220831/let、const、var.png)
+  - 数组解构：let[a,b,c] = [1,2,3]
+  - 对象解构: let {name, age} = {name:'cjh', ahe:18}
+  - 箭头函数：() => {}
+    - 只有一个形参，可省略括号
+    - 只有一行代码，且执行结果是返回值，可省略大括号
+    - 不能使用arguments参数
+    - 不能绑定this关键字
+  - 剩余参数：...args，表示可以代表多个参数
+  - Array扩展运算符：arr = [1,2,3]，...arr -> 1,2,3
+    - 1 合并数组:[...arr1, ...arr2]或arr1.push(...arr2)
+    - 2 伪数组转化为数组：[...arrLike]
+  - Array.from：伪数组转化为数组
+  - arr.find()、arr.findIndex()、arr.includes()
+  - 模板字符串：`${}`解析变量，可以换行
+  - String拓展方法：endWith、startWith、repeat
+  - Set数据结构：不能包含重复内容
+    - 初始化时自动去重
+    - 增删改查：add\delete\has\clear
+    - 遍历用forEach
